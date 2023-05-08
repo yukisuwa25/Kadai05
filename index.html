@@ -107,6 +107,9 @@
         <div class="chat-flex">
             <div id="output" style="overflow: auto; height: 300px; border: 3px solid black;"></div>
         </div>
+        <div>
+            <button id="delete">削除</button>
+        </div>
     </div>
 </section>
 <!-- footer -->
@@ -124,6 +127,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="./slick/slick.min.js"></script>
 <!-- JQuery -->
+
+
+<script src="./js/main.js"></script>
 
 <!--** 以下Firebase **-->
 <script type="module">
@@ -149,7 +155,6 @@
     const db = getDatabase(app);
     const dbRef = ref(db,"chat");
 
-
     $("#send").on("click",function(){
         const msg = {
             uname:$("#uname").val(),
@@ -163,6 +168,12 @@
         $("#text").val("");
 
         $("#output").scrollTop($("#output")[0].scrollHeight);
+    });
+
+    //削除イベント
+    $("#delete").on("click",function(){
+        remove(dbRef);
+        $("#output").empty();
     });
 
     // $("#text").on("keydown",function(e){         //dblclickダブルクリック

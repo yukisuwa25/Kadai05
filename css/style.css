@@ -188,3 +188,17 @@ footer{
 #send:hover{
     background-color: #fff;
 }
+#delete{
+    font-size: 32px;
+    color: black;
+    text-decoration: none;
+    background-color: #FFFF88;
+    border: 1px solid black;
+    border-radius: 50%;
+    padding: 10px 30px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+#delete:hover{
+    background-color: #fff;
+}
